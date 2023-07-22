@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpphx1j2hmwht"]
+
+[ext_resource type="Theme" uid="uid://3mfq706sovfm" path="res://assets/main_theme.tres" id="1_04d6v"]
+[ext_resource type="Script" path="res://pixeleditor/canvasview.gd" id="1_gypvh"]
+[ext_resource type="Texture2D" uid="uid://db1d5xsc6hsyg" path="res://assets/icons/fill-color.svg" id="1_i1dq4"]
+[ext_resource type="Texture2D" uid="uid://bq2xjalgsar6u" path="res://assets/icons/edit-pencil.svg" id="1_ogqaw"]
+[ext_resource type="PackedScene" uid="uid://3i7kdmftopdh" path="res://pixeleditor/pixelcanvas.tscn" id="2_j54lg"]
+[ext_resource type="Texture2D" uid="uid://dod6vs2gn8he5" path="res://assets/icons/erase.svg" id="2_l0a64"]
+[ext_resource type="Script" path="res://pixeleditor/colorpicker.gd" id="3_587qs"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_04d6v")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_04d6v")
+metadata/_edit_use_anchors_ = true
+
+[node name="vbox" type="VBoxContainer" parent="background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="makeshiftmenubar" type="HBoxContainer" parent="background/vbox"]
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="background/vbox/makeshiftmenubar"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+text = "file stuf"
+
+[node name="MenuButton2" type="MenuButton" parent="background/vbox/makeshiftmenubar"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+text = "edit things"
+
+[node name="VBoxContainer" type="VSplitContainer" parent="background/vbox"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="background/vbox/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="background/vbox/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HFlowContainer" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="toolslabel" type="Label" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "tools :)"
+
+[node name="eraser" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "erase pixels on screen
+"
+theme = ExtResource("1_04d6v")
+toggle_mode = true
+icon = ExtResource("2_l0a64")
+
+[node name="fill" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+toggle_mode = true
+icon = ExtResource("1_i1dq4")
+
+[node name="pencil" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("1_ogqaw")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="background/vbox/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="canvasview" type="SubViewportContainer" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+stretch = true
+script = ExtResource("1_gypvh")
+
+[node name="canvas" type="SubViewport" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/canvasview"]
+unique_name_in_owner = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(600, 530)
+render_target_update_mode = 4
+
+[node name="pixelcanvas" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/canvasview/canvas" instance=ExtResource("2_j54lg")]
+
+[node name="PanelContainer2" type="PanelContainer" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "properties ..."
+
+[node name="ColorPicker" type="ColorPicker" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_04d6v")
+can_add_swatches = false
+presets_visible = false
+script = ExtResource("3_587qs")
+
+[node name="GridContainer" type="GridContainer" parent="background/vbox/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="color_changed" from="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer/ColorPicker" to="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer/ColorPicker" method="_on_color_changed"]

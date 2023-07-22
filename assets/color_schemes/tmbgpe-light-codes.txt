@@ -1,0 +1,11 @@
+Your selected colors:
+
+	Text: #01060a (RGB: 1, 6, 10)
+	Background: #fffdf7 (RGB: 255, 253, 247)
+	Primary: #fde039 (RGB: 253, 224, 57)
+	Secondary: #fef2ae (RGB: 254, 242, 174)
+	Accent: #0223de (RGB: 2, 35, 222)
+
+Realtime Colors link for selected colors: https://realtimecolors.com/?colors=01060a-fffdf7-fde039-fef2ae-0223de
+
+Thanks for using RealtimeColors.com!

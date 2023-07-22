@@ -1,0 +1,11 @@
+Your selected colors:
+
+	Text: #fafafa (RGB: 250, 250, 250)
+	Background: #050505 (RGB: 5, 5, 5)
+	Primary: #fde039 (RGB: 253, 224, 57)
+	Secondary: #dae1cd (RGB: 218, 225, 205)
+	Accent: #1333e7 (RGB: 19, 51, 231)
+
+Realtime Colors link for selected colors: https://realtimecolors.com/?colors=fafafa-050505-fde039-dae1cd-1333e7
+
+Thanks for using RealtimeColors.com!

@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://3i7kdmftopdh"]
+
+[ext_resource type="Script" path="res://pixeleditor/canvas.gd" id="1_5ujlj"]
+[ext_resource type="Material" uid="uid://br1pif2lia1yp" path="res://shaders/2d_grid.tres" id="1_wvynd"]
+[ext_resource type="Material" uid="uid://cdlqkxh36v5lc" path="res://shaders/transparency_grid_material.tres" id="1_ygarp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_6svku"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_so7vx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ki07g"]
+
+[node name="pixelcanvas" type="Node2D"]
+
+[node name="camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+
+[node name="transparency_grid" type="MeshInstance2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("1_ygarp")
+mesh = SubResource("QuadMesh_6svku")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="transparency_grid"]
+modulate = Color(0.894118, 0.894118, 0.894118, 1)
+show_behind_parent = true
+mesh = SubResource("QuadMesh_so7vx")
+
+[node name="canvas" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+centered = false
+offset = Vector2(-0.5, -0.5)
+script = ExtResource("1_5ujlj")
+
+[node name="outline" type="Line2D" parent="canvas"]
+unique_name_in_owner = true
+visible = false
+width = 0.4
+joint_mode = 2
+antialiased = true
+
+[node name="pixel_grid" type="MeshInstance2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("1_wvynd")
+mesh = SubResource("QuadMesh_ki07g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="recenter" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.881076
+anchor_top = 0.95216
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 129.0
+offset_top = 23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "re-center canvas"
+
+[node name="zoomInfo" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.959877
+anchor_right = 0.0694444
+anchor_bottom = 1.0
+grow_vertical = 0
+text = "zoom (1,1)"
+
+[node name="addTimer" type="Timer" parent="CanvasLayer"]
+unique_name_in_owner = true
+wait_time = 0.02
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/Control/recenter" to="canvas" method="_on_recenter_pressed"]
+[connection signal="timeout" from="CanvasLayer/addTimer" to="canvas" method="_on_add_timer_timeout"]

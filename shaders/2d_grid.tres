@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://br1pif2lia1yp"]
+
+[ext_resource type="Shader" path="res://shaders/2d_grid.gdshader" id="1_ywlg5"]
+
+[resource]
+shader = ExtResource("1_ywlg5")
+shader_parameter/size = Vector2(1000, 1000)
+shader_parameter/line_width = 0.05
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 80.0
+shader_parameter/grid_color = Color(0.560784, 0.560784, 0.560784, 1)

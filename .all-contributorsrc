@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "liyaowhen",
+      "name": "liyaowhen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72400519?v=4",
+      "profile": "https://github.com/liyaowhen",
+      "contributions": [
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "the-most-best-pixel-editor",
+  "projectOwner": "theMostBest"
+}

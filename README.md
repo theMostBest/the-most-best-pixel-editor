@@ -10,6 +10,22 @@ made using godot, this pixel editor aims to be frequently updated, and add as ma
 ## contributors 🏖️
 
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/liyaowhen"><img src="https://avatars.githubusercontent.com/u/72400519?v=4?s=100" width="100px;" alt="liyaowhen"/><br /><sub><b>liyaowhen</b></sub></a><br /><a href="#projectManagement-liyaowhen" title="Project Management">📆</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 # features (wip) 🤩
 
 👎 not added

@@ -8,6 +8,8 @@
   "commitConvention": "angular",
   "contributors": [
     {
+
+      
       "login": "the-jasoney",
       "name": "Jason Wen",
       "avatar_url": "https://avatars.githubusercontent.com/u/107383260?v=4",
@@ -15,6 +17,13 @@
       "contributions": [
         "ideas",
         "code"
+    ]
+      "login": "liyaowhen",
+      "name": "liyaowhen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72400519?v=4",
+      "profile": "https://github.com/liyaowhen",
+      "contributions": [
+        "projectManagement"
       ]
     }
   ],

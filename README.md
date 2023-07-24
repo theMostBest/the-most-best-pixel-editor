@@ -4,7 +4,7 @@ made using godot, this pixel editor aims to be frequently updated, and add as ma
 
 *legally, we cant claim to be the most best pixel editor.* i just liked the name, so i named it that way 🙃
 
-## contributors 🏖️
+# contributors 🏖️
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

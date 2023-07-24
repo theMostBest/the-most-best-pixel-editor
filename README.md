@@ -6,7 +6,14 @@ made using godot, this pixel editor aims to be frequently updated, and add as ma
 
 ## contributors 🏖️
 
-https://img.shields.io/github/:variant/:user/:repo
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 # features (wip) 🤩
 

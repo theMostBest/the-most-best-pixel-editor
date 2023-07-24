@@ -20,4 +20,4 @@ made using godot, this pixel editor aims to be frequently updated, and add as ma
 
 # pls contribute 😃
 
-this project needs lots of help from other people who are more experienced with godot. even though i am very good with programming, im still learning godot. check out our uypues.txt to see what issues need to be fixed for new contributors. not only will contributing help this project, but it can help you ✨ *r e f i n e* ✨ ur godot skills. check out our contribution guidelines for more
+this project needs lots of help from other people who are more experienced with godot. even though i am very good with programming, im still learning godot. check out our uypues.txt to see what issues need to be fixed for new contributors. not only will contributing help this project, but it can help you ✨ *r e f i n e* ✨ ur godot skills. check out our contribution guidelines for more. this [file](uypues.txt) can show u some stuff to fix as a new contributor

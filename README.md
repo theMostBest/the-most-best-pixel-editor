@@ -4,15 +4,16 @@ made using godot, this pixel editor aims to be frequently updated, and add as ma
 
 *legally, we cant claim to be the most best pixel editor.* i just liked the name, so i named it that way 🙃
 
-# contributors 🏖️
+## contributors 🏖️
 
-join me on this wall by contributing!
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-<a href="https://github.com/theMostBest/the-most-best-pixel-editor/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=theMostBest/the-most-best-pixel-editor" />
-</a>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-Made with [contrib.rocks](https://contrib.rocks).
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 # features (wip) 🤩
 

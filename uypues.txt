@@ -38,6 +38,15 @@ expand the issues. i honestly like that, but u can open this in notepad as well.
 	general location:
 		pixelcanvas.tscn (the scene with the pixel canvas)
 
+4. flood filling is super slow:
+	i tried many ways to flood fill, the fastest i found was recursive flood filling, but this easily
+	cause a stack overflow. because of stability, i opted for a slow iterative algorithm that was safe,
+	but was super slow and caused lag for images that were bigger than 300*300. pls help me and make
+	a safe but fast filling algorithm. thanks!
+	
+	files with this notice:
+		canvas.gd
+
 ~ severe issues without good solution (contributors, pls help me w these) ~
 
 1. resizing the window causes crash:

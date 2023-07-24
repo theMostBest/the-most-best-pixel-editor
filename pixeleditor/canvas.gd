@@ -5,10 +5,25 @@ extends Sprite2D
 @export var image:Image = Image.create(16,16,true,Image.FORMAT_RGBA4444);
 var displayTexture:ImageTexture
 
-var imageSize := 8; # set this to the *ideal* value, but upscale it by 1 because of issues listed in the uypues.txt
+var imageSize := 100; # set this to the *ideal* value, but upscale it by 1 because of issues listed in the uypues.txt
 var zoomingFactor = 0.3;
 var tweeningSpeed = 0.1; # in seconds
 var zoomInfo:String;
+
+# flood filling
+var pixelsToBeFilled:Array = [] # filled with Vector2i
+var colorLookup:Color;
+var floodFillingThread:Thread;
+signal stackIsOk
+var stackLimit:int = 30;
+var stackCount:int = 0 : set = _setStackCount;
+var floodFillQueue:Array = []
+var checkForRepeats:Array = [] # for debugging only
+
+func _setStackCount(newValue:int):
+	if newValue <= 30:
+		emit_signal("stackIsOk")
+	stackCount = newValue;
 
 # panning
 var panning:bool = false;
@@ -31,6 +46,8 @@ func _ready() -> void:
 	%outline.add_point(Vector2(imageSize -0.5, imageSize-0.5))
 	%outline.add_point(Vector2(0.5, imageSize-0.5));
 	%outline.add_point(Vector2(0.5,0.5));
+	floodFillingThread = Thread.new();
+	floodFillingThread.start(floodFillEvaluation)
 	#grid
 	%pixel_grid.scale = Vector2(imageSize-1, imageSize-1);
 	%pixel_grid.position += Vector2((imageSize+0.000)/2, (imageSize+0.000)/2);
@@ -39,6 +56,7 @@ func _ready() -> void:
 	%transparency_grid.position += Vector2((imageSize + 0.000)/2, (imageSize + 0.000)/2)
 	create_image()
 	%addTimer.start();
+	stackCount = 0;
 	
 func create_image() -> void:
 	displayTexture = ImageTexture.create_from_image(image);
@@ -62,7 +80,6 @@ func _on_add_timer_timeout() -> void:
 	relocate();
 
 ## drawing stuff
-
 func _process(delta: float) -> void:
 	if panning:
 		pan(get_viewport().get_camera_2d().get_global_mouse_position())
@@ -70,10 +87,60 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("mouse_down"):
 			old_pos = get_local_mouse_position() + Vector2(0.5, 0.5)
 		if Input.is_action_pressed("mouse_down"):
-			drawPixel(old_pos, get_local_mouse_position() + Vector2(0.5, 0.5))
+			useTools("mouse_down", old_pos, get_local_mouse_position() + Vector2(0.5, 0.5));
 			old_pos = get_local_mouse_position() + Vector2(0.5,0.5)
 	var mousePos = get_viewport().get_camera_2d().get_local_mouse_position()
 	%zoomInfo.text = zoomInfo + "mouse (" + str(int(mousePos.x)) + ", " + str(int(mousePos.y)) + ")";
+
+# general toolbar function
+func useTools(event:String, old_pos:Vector2 = Vector2(0,0), pos:Vector2 = Vector2(0,0)):
+	match event:
+		"mouse_down":
+			match PixelEditor.toolbarState:
+				PixelEditor.toolbarStates.DRAW:
+					drawPixel(old_pos, pos)
+				PixelEditor.toolbarStates.FILL:
+					floodFill(get_local_mouse_position() + Vector2(0.5, 0.5))
+
+func floodFill(pos:Vector2):
+	stackCount = 0;
+	var pixelCords:Vector2i = Vector2i(pos);
+	var imageRect:Rect2i = Rect2i(0, 0, image.get_width(), image.get_height())
+	colorLookup = image.get_pixelv(pixelCords);
+	await floodFillEvaluation(pixelCords)
+	for i in pixelsToBeFilled:
+		drawFloodFill(i)
+	pixelsToBeFilled.clear();
+	update_image()
+	
+func drawFloodFill(pos:Vector2i) -> bool:
+	safeSetPixel(image, pos.x, pos.y, PixelEditor.current_color)
+	return true
+
+func floodFillEvaluation(pixelCords:Vector2i):
+	var queue = [pixelCords]
+	
+	while queue:
+		var pixel = queue.pop_back()
+		print(pixel);
+		for i in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+			if checkFloodFillPixel(pixel + i):
+				pixelsToBeFilled.append(pixel + i)
+				checkForRepeats.append(pixel + i)
+				queue.append(pixel + i)
+
+func checkFloodFillPixel(pixelCords) -> bool:
+	if pixelsToBeFilled.has(pixelCords):
+		return false;
+	if pixelCords.x < 0 || pixelCords.x > imageSize - 1:
+		return false;
+	if pixelCords.y < 0 || pixelCords.y > imageSize - 1:
+		return false;
+	if image.get_pixelv(pixelCords) != colorLookup:
+		return false;
+	else:
+		return true;
+	
 
 func drawPixel(old_position:Vector2, position:Vector2):
 	position = Vector2i(position)
@@ -137,3 +204,6 @@ func zoom(direction:bool, mousePos:Vector2): # maximizing is true, minimizing is
 
 func pan(pos:Vector2):
 	%camera.position = initialCameraPos + pos.lerp(initialPos, 0.4)
+
+func _exit_tree() -> void:
+	floodFillingThread.wait_to_finish();

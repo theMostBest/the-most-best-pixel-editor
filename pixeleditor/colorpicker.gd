@@ -1,4 +1,4 @@
-extends ColorPicker
+extends ColorPickerButton
 
 func _ready() -> void:
 	color = PixelEditor.current_color;

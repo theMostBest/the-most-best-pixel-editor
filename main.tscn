@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpphx1j2hmwht"]
+[gd_scene load_steps=10 format=3 uid="uid://cpphx1j2hmwht"]
 
 [ext_resource type="Theme" uid="uid://3mfq706sovfm" path="res://assets/main_theme.tres" id="1_04d6v"]
 [ext_resource type="Script" path="res://pixeleditor/canvasview.gd" id="1_gypvh"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bq2xjalgsar6u" path="res://assets/icons/edit-pencil.svg" id="1_ogqaw"]
 [ext_resource type="PackedScene" uid="uid://3i7kdmftopdh" path="res://pixeleditor/pixelcanvas.tscn" id="2_j54lg"]
 [ext_resource type="Texture2D" uid="uid://dod6vs2gn8he5" path="res://assets/icons/erase.svg" id="2_l0a64"]
+[ext_resource type="Script" path="res://pixeleditor/toolbar.gd" id="2_q26ja"]
 [ext_resource type="Script" path="res://pixeleditor/colorpicker.gd" id="3_587qs"]
+[ext_resource type="ButtonGroup" uid="uid://p0i3u3vm10bk" path="res://pixeleditor/toolbar_button_group.tres" id="3_s88gl"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,14 +30,14 @@ grow_vertical = 2
 theme = ExtResource("1_04d6v")
 metadata/_edit_use_anchors_ = true
 
-[node name="vbox" type="VBoxContainer" parent="background"]
+[node name="vbox" type="VSplitContainer" parent="background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+collapsed = true
 
 [node name="makeshiftmenubar" type="HBoxContainer" parent="background/vbox"]
 layout_mode = 2
@@ -60,36 +62,32 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="background/vbox/VBoxContainer/HSplitContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="HFlowContainer" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer"]
+[node name="toolbar" type="HFlowContainer" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer"]
 layout_mode = 2
+script = ExtResource("2_q26ja")
 
-[node name="CenterContainer" type="CenterContainer" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="toolslabel" type="Label" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "tools :)"
-
-[node name="eraser" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+[node name="eraser" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar"]
 layout_mode = 2
 tooltip_text = "erase pixels on screen
 "
 theme = ExtResource("1_04d6v")
 toggle_mode = true
+button_group = ExtResource("3_s88gl")
 icon = ExtResource("2_l0a64")
 
-[node name="fill" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+[node name="fill" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar"]
 layout_mode = 2
 theme = ExtResource("1_04d6v")
 toggle_mode = true
+button_group = ExtResource("3_s88gl")
 icon = ExtResource("1_i1dq4")
 
-[node name="pencil" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/VBoxContainer"]
+[node name="pencil" type="Button" parent="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar"]
 layout_mode = 2
 theme = ExtResource("1_04d6v")
 toggle_mode = true
 button_pressed = true
+button_group = ExtResource("3_s88gl")
 icon = ExtResource("1_ogqaw")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="background/vbox/VBoxContainer/HSplitContainer"]
@@ -105,7 +103,7 @@ script = ExtResource("1_gypvh")
 unique_name_in_owner = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(600, 530)
+size = Vector2i(600, 200)
 render_target_update_mode = 4
 
 [node name="pixelcanvas" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/canvasview/canvas" instance=ExtResource("2_j54lg")]
@@ -124,14 +122,17 @@ layout_mode = 2
 layout_mode = 2
 text = "properties ..."
 
-[node name="ColorPicker" type="ColorPicker" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer"]
+[node name="ColorPicker" type="ColorPickerButton" parent="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_04d6v")
-can_add_swatches = false
-presets_visible = false
+text = "color"
+color = Color(0.619608, 0.580392, 0.831373, 1)
 script = ExtResource("3_587qs")
 
 [node name="GridContainer" type="GridContainer" parent="background/vbox/VBoxContainer"]
 layout_mode = 2
 
+[connection signal="pressed" from="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar/eraser" to="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar" method="_on_eraser_pressed"]
+[connection signal="pressed" from="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar/fill" to="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar" method="_on_fill_pressed"]
+[connection signal="pressed" from="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar/pencil" to="background/vbox/VBoxContainer/HSplitContainer/PanelContainer/toolbar" method="_on_pencil_pressed"]
 [connection signal="color_changed" from="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer/ColorPicker" to="background/vbox/VBoxContainer/HSplitContainer/HSplitContainer/PanelContainer2/VBoxContainer/ColorPicker" method="_on_color_changed"]

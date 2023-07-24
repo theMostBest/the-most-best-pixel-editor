@@ -1,6 +1,6 @@
 Your selected colors:
 
-	Text: #fafafa (RGB: 250, 250, 250)
+	Text: #fafafa (RGB: 250, 250, 250) or #030303
 	Background: #050505 (RGB: 5, 5, 5)
 	Primary: #fde039 (RGB: 253, 224, 57)
 	Secondary: #dae1cd (RGB: 218, 225, 205)

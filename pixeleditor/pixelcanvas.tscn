@@ -21,7 +21,7 @@ material = ExtResource("1_ygarp")
 mesh = SubResource("QuadMesh_6svku")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="transparency_grid"]
-modulate = Color(0.894118, 0.894118, 0.894118, 1)
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
 show_behind_parent = true
 mesh = SubResource("QuadMesh_so7vx")
 

@@ -22,6 +22,10 @@ config/icon="res://icon.svg"
 
 PixelEditor="*res://autoloads/pixeleditor.gd"
 
+[debug]
+
+settings/gdscript/max_call_stack=2047
+
 [display]
 
 window/stretch/aspect="ignore"

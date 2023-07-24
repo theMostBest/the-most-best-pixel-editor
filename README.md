@@ -16,6 +16,7 @@ made using godot, this pixel editor aims to be frequently updated, and add as ma
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/liyaowhen"><img src="https://avatars.githubusercontent.com/u/72400519?v=4?s=100" width="100px;" alt="liyaowhen"/><br /><sub><b>liyaowhen</b></sub></a><br /><a href="#projectManagement-liyaowhen" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/the-jasoney"><img src="https://avatars.githubusercontent.com/u/107383260?v=4" width="100px;" alt="the-jasoney"/><br /><sub><b>the-jasoney</b></sub></a><br /><a href="#code-the-jasoney" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

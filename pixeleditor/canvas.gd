@@ -6,7 +6,7 @@ extends Sprite2D
 var displayTexture:ImageTexture
 
 var imageSize := 100; # set this to the *ideal* value, but upscale it by 1 because of issues listed in the uypues.txt
-var zoomingFactor = 0.3;
+var zoomingFactor = 0.4;
 var tweeningSpeed = 0.1; # in seconds
 var zoomInfo:String;
 

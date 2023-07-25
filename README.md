@@ -1,4 +1,5 @@
-# the most best pixel editor ✨
+# ✨ the most best pixel editor ✨ ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/theMostBest/the-most-best-pixel-editor/master)
+
 
 made using godot, this pixel editor aims to be frequently updated, and add as many tools as needed to make a perfect pixel editor. the core value of this project is to have as much progress as possible so that github can always say that the last commit was only a few days ago. 🥳🥳🥳
 

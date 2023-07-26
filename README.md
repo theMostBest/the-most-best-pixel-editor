@@ -4,7 +4,7 @@
 
 made using godot, this pixel editor aims to be frequently updated, and add as many tools as needed to make a perfect pixel editor. the core value of this project is to have as much progress as possible so that github can always say that the last commit was only a few days ago. 🥳🥳🥳
 
-this git repo is a WIP, so there are no releases... yet, but we are willing to get contributors in our pre-pre-alpha stage 🥇
+**this git repo is a WIP**, so there are no releases... yet, but we are willing to get contributors in our pre-pre-alpha stage 🥇
 
 *legally, we cant claim to be the most best pixel editor.* i just liked the name, so i named it that way 🙃
 

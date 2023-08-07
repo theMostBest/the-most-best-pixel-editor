@@ -1,18 +1,38 @@
-# the most best pixel editor ✨
+# ✨ the most best pixel editor ✨ ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/theMostBest/the-most-best-pixel-editor/master)
+
+![tmbge_design-01](https://github.com/theMostBest/the-most-best-pixel-editor/assets/72400519/c8099bdb-1de5-403a-9f0d-70a86d35b644)
 
 made using godot, this pixel editor aims to be frequently updated, and add as many tools as needed to make a perfect pixel editor. the core value of this project is to have as much progress as possible so that github can always say that the last commit was only a few days ago. 🥳🥳🥳
+
+**this git repo is a WIP**, so there are no releases... yet, but we are willing to get contributors in our pre-pre-alpha stage 🥇
 
 *legally, we cant claim to be the most best pixel editor.* i just liked the name, so i named it that way 🙃
 
 # contributors 🏖️
 
-join me on this wall by contributing!
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/liyaowhen"><img src="https://avatars.githubusercontent.com/u/72400519?v=4?s=100" width="100px;" alt="liyaowhen"/><br /><sub><b>liyaowhen</b></sub></a><br /><a href="#projectManagement-liyaowhen" title="Project Management">📆</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/the-jasoney"><img src="https://avatars.githubusercontent.com/u/107383260?v=4" width="100px;" alt="the-jasoney"/><br /><sub><b>the-jasoney</b></sub></a><br /><a href="#code-the-jasoney" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
 
-<a href="https://github.com/theMostBest/the-most-best-pixel-editor/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=theMostBest/the-most-best-pixel-editor" />
-</a>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-Made with [contrib.rocks](https://contrib.rocks).
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 # features (wip) 🤩
 
@@ -30,4 +50,6 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 # pls contribute 😃
 
-this project needs lots of help from other people who are more experienced with godot. even though i am very good with programming, im still learning godot. check out our uypues.txt to see what issues need to be fixed for new contributors. not only will contributing help this project, but it can help you ✨ *r e f i n e* ✨ ur godot skills. check out our contribution guidelines for more. this [file](uypues.txt) can show u some stuff to fix as a new contributor
+this project needs lots of help from other people who are more experienced with godot. even though i am very good with programming, im still learning godot. not only will contributing help this project, but it can help you ✨ *r e f i n e* ✨ ur godot skills. 
+
+- check out our contribution guidelines for more. this [file](uypues.md) can show u some stuff to fix as a new contributor

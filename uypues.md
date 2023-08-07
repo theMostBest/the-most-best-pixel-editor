@@ -34,6 +34,14 @@ i tried many ways to flood fill, the fastest i found was recursive flood filling
 	
 - files with this notice: [canvas.gd]
 
+### brush keeps drawing even when the mouse is out of the viewport
+
+when i draw with a brush in the canvas and move the mouse out of the viewport, the brush kept going.
+if you noticed, you would see that i restricted the flood fill tool for out of the viewport, because it was easy. but if you use the brush with the same restriction, some pixels get lost because the brush uses a line
+algorithm to counteract dropped pixels. 
+
+- files with this notice: [canvas.gd]
+
 ## severe issues without a good solution (contributors, pls help me w these)
 
 ###  resizing the window causes crash 😠

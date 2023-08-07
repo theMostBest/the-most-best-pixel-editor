@@ -79,6 +79,13 @@ func _on_recenter_pressed() -> void:
 func _on_add_timer_timeout() -> void:
 	relocate();
 
+func isMouseInViewport():
+	var mousePos = get_viewport().get_mouse_position();
+	if get_viewport_rect().has_point(mousePos):
+		return true;
+	else:
+		return false;
+
 ## drawing stuff
 func _process(delta: float) -> void:
 	if panning:
@@ -100,7 +107,8 @@ func useTools(event:String, old_pos:Vector2 = Vector2(0,0), pos:Vector2 = Vector
 				PixelEditor.toolbarStates.DRAW:
 					drawPixel(old_pos, pos)
 				PixelEditor.toolbarStates.FILL:
-					floodFill(get_local_mouse_position() + Vector2(0.5, 0.5))
+					if isMouseInViewport():
+						floodFill(get_local_mouse_position() + Vector2(0.5, 0.5))
 
 func floodFill(pos:Vector2):
 	stackCount = 0;
@@ -142,6 +150,7 @@ func checkFloodFillPixel(pixelCords) -> bool:
 		return true;
 	
 
+
 func drawPixel(old_position:Vector2, position:Vector2):
 	position = Vector2i(position)
 	old_position = Vector2i(old_position)
@@ -152,7 +161,6 @@ func safeSetPixel(img: Image, x: int, y: int, color: Color):
 	if x < img.get_size().x and x > 0:
 		if y < img.get_size().y and y > 0:
 			img.set_pixel(x, y, color)
-
 func drawLine(img: Image, start: Vector2i, end: Vector2i, color: Color):
 	var delta: Vector2i = end - start
 	var abs_delta = abs(delta)
